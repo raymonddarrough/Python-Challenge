@@ -14,27 +14,27 @@ with open(filePath, "r", encoding = "UTF-8") as handler:
 
 
     for row in csvreader:
-        totalvotes =+ 1
+        totalvotes += 1
         if row[2] not in candidates:
             candidates[row[2]] = 1 
         else:
-            candidates[row[2]] =+ 1 
+            candidates[row[2]] += 1 
 
 
-candidate_key = max(candidates, key = candidates.get)   
+    candidate_key = max(candidates, key = candidates.get)   
 
-print("Election Results"
-      "\n--------------------------"
-      f"\n Total Votes: {totalvotes}"
-     "\n--------------------------"
-     )
+    print("Election Results"
+        "\n--------------------------"
+        f"\n Total Votes: {totalvotes}"
+        "\n--------------------------"
+        )
 
-for key,value in candidates.items():
-        print(f"{key} : {round((value/totalvotes)*100, 3)}% ({value})")
-print( "--------------------------"
-      f"\n Winner: {candidate_key}"
-     "\n--------------------------"
-     )
+    for key,value in candidates.items():
+            print(f"{key} : {round((value/totalvotes)*100, 3)}% ({value})")
+    print( "--------------------------"
+        f"\n Winner: {candidate_key}"
+        "\n--------------------------"
+        )
         
 txt_file_path = "Analysis/PyPoll_Analysis.txt"
 
